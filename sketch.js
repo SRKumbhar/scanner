@@ -1,5 +1,8 @@
 const r = require("raylib");
 
+let rectX = 0;
+let speed = 5;
+
 function running() {
     return !r.WindowShouldClose();
 }
@@ -9,8 +12,6 @@ function setup() {
     r.SetTargetFPS(60);
 }
 
-let rectX = 0;
-let speed = 5;
 function update() {
     if (rectX + 100 === 1745) {
         speed = -5;
@@ -21,12 +22,12 @@ function update() {
     rectX += speed;
 }
 
-
-
 function draw() {
     r.BeginDrawing();
     r.ClearBackground(r.BLACK);
+
     r.DrawRectangle(rectX, 0, 100, r.GetScreenHeight(), r.WHITE);
+
     r.EndDrawing();
 }
 
